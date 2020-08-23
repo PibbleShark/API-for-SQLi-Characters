@@ -1,5 +1,8 @@
 # list base on payload examples from
 # https://medium.com/@ismailtasdelen/sql-injection-payload-list-b97656cfd66b
+
+"""List of characters potentially associated with a SQL injection."""
+
 char_list = [
     "'",
     '`',

@@ -8,6 +8,7 @@ result_field = {'result': fields.String}
 
 
 def sanitize_check(payload):
+    """function to search for selected characters in the provided string."""
     unsanitized = any(char in payload for char in char_list)
     if unsanitized:
         return 'unsanitized'
@@ -28,6 +29,7 @@ class SQLChars(Resource):
 
     @marshal_with(result_field)
     def post(self):
+        """Post method returns the results of our check as JSON"""
         args = self.reqparse.parse_args()
         return {'result': sanitize_check(str(args['payload']))}
 
